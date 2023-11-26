@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>technician Login</title>
+  <link rel="stylesheet" href="login-page.css">
+  <style>
+    html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: #3a3a3a;
+}
+
+#main-holder {
+  width: 50%;
+  height: 70%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0px 0px 5px 2px black;
+}
+
+#login-error-msg-holder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+#login-error-msg {
+  width: 23%;
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #8a0000;
+  border: 1px solid #8a0000;
+  background-color: #e58f8f;
+  opacity: 0;
+}
+
+#error-msg-second-line {
+  display: block;
+}
+
+#login-form {
+  align-self: flex-start;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.login-form-field::placeholder {
+  color: #3a3a3a;
+}
+
+.login-form-field {
+  border: none;
+  border-bottom: 1px solid #3a3a3a;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  outline: none;
+  padding: 0px 0px 5px 5px;
+}
+
+#login-form-submit {
+  width: 100%;
+  padding: 12px;
+  margin: 3px;
+  border: none;
+  border-radius: 9px;
+  color: white;
+  font-weight: bold;
+  background-color: #3a3a3a;
+  cursor: pointer;
+  outline: none;
+}
+#login-form-cancel {
+  width: 100%;
+  padding: 12px;
+  margin: 3px;
+  border: none;
+  border-radius: 9px;
+  color: white;
+  font-weight: bold;
+  background-color: #3a3a3a;
+  /* cursor: pointer; */
+  outline: none;
+}
+  </style>
+</head>
+
+<body>
+  <main id="main-holder">
+    <h1 id="login-header">Worker Login</h1>
+    
+    <div id="login-error-msg-holder">
+      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div>
+    
+    <form id="login-form" method="post" action="">
+      <form>
+      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+      <a href="Workerlist.php"><button type="submit" value="Login" id="login-form-submit" name="submit">Log In</button></a>
+      </form>
+      <a href="home1.php"><button type="cancel" value="cancel" id="login-form-cancel" name="Cancel">Cancel</button></a>
+    </form>
+  
+  </main>
+</body>
+<script>
+  const loginForm = document.getElementById("login-form");
+  const loginButton = document.getElementById("login-form-submit");
+  const cancelButton = document.getElementById("login-form-cancel");
+  const loginErrorMsg = document.getElementById("login-error-msg");
+
+  loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      const username = loginForm.username.value;
+      const password = loginForm.password.value;
+
+      if (username === "Vishakha123" && password === "vishu@123") {
+          alert("You have successfully logged in.");
+          window.location.href = "Workerlist.php";
+      } else {
+          loginErrorMsg.style.opacity = 1;
+      }
+  });
+</script>
+</html>
